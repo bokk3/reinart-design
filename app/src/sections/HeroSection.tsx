@@ -94,7 +94,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Fixed hero */}
-      <div ref={sectionRef} className="fixed inset-0 z-0 h-screen w-full">
+      <div id="hero" ref={sectionRef} className="fixed inset-0 z-0 h-screen w-full">
         <div
           ref={bgRef}
           className="absolute inset-0 w-full h-full opacity-0"

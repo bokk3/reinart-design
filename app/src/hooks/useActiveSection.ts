@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const SECTION_IDS = [
+  'hero',
   'realisaties',
   'over-rein',
   'werkwijze',
@@ -11,10 +12,19 @@ const SECTION_IDS = [
 ]
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<string>('')
+  const [activeSection, setActiveSection] = useState<string>('hero')
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
+
+    // Check if we're at the top on mount/scroll
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveSection('hero')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id)
@@ -23,7 +33,7 @@ export function useActiveSection() {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && window.scrollY >= 100) {
               setActiveSection(id)
             }
           })
@@ -36,6 +46,7 @@ export function useActiveSection() {
     })
 
     return () => {
+      window.removeEventListener('scroll', handleScroll)
       observers.forEach((o) => o.disconnect())
     }
   }, [])
