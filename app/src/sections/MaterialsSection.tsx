@@ -19,13 +19,13 @@ export default function MaterialsSection() {
     <section id="materialen" className="bg-cream section-padding relative z-10">
       <div className="container-custom">
         <div ref={headerRef} className="text-center mb-20">
-          <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
+          <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
             Materialen
           </span>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-charcoal leading-[1.1] tracking-tight">
             Alleen het beste
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto font-sans text-lg text-[#8A8580] leading-relaxed">
+          <p className="mt-4 max-w-2xl mx-auto font-sans text-lg text-[#5C3D2E] leading-relaxed">
             De keuze van materiaal bepaalt het karakter van je meubel. Ik werk
             uitsluitend met hoogwaardige materialen die jaren meegaan.
           </p>
@@ -48,7 +48,7 @@ export default function MaterialsSection() {
                 <h3 className="font-sans font-semibold text-base lg:text-lg text-[#F7F5F0] tracking-wide">
                   {material.name}
                 </h3>
-                <p className="font-sans text-xs lg:text-sm text-[#F7F5F0]/70 mt-1 leading-relaxed line-clamp-3">
+                <p className="font-sans text-sm text-[#F7F5F0]/85 mt-1 leading-relaxed line-clamp-3">
                   {material.description}
                 </p>
               </div>

@@ -94,13 +94,13 @@ export default function ProcessSection() {
     <section id="werkwijze" ref={sectionRef} className="bg-charcoal section-padding relative z-10">
       <div className="container-custom">
         <div ref={headerRef} className="text-center mb-24">
-          <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
+          <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
             Hoe ik werk
           </span>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-[#F7F5F0] leading-[1.1] tracking-tight">
             Van idee tot realisatie
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto font-sans text-lg text-[#F7F5F0]/60 leading-relaxed">
+          <p className="mt-4 max-w-2xl mx-auto font-sans text-lg text-[#F7F5F0]/80 leading-relaxed">
             Een transparant proces waarbij jij centraal staat. Samen brengen
             we jouw visie tot leven.
           </p>
@@ -136,7 +136,7 @@ export default function ProcessSection() {
                       <h3 className="font-serif text-2xl lg:text-3xl text-[#F7F5F0] leading-tight">
                         {step.title}
                       </h3>
-                      <p className="font-sans text-sm lg:text-base text-[#F7F5F0]/70 leading-relaxed mt-3 max-w-md">
+                      <p className="font-sans text-base text-[#F7F5F0]/85 leading-relaxed mt-3 max-w-md">
                         {step.description}
                       </p>
                     </div>

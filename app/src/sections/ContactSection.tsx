@@ -22,13 +22,13 @@ export default function ContactSection() {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div ref={leftRef} className="lg:col-span-5">
-            <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
+            <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
               Contact
             </span>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-[#F7F5F0] leading-[1.1] tracking-tight">
               Laten we kennismaken
             </h2>
-            <p className="mt-6 font-sans text-lg text-[#F7F5F0]/70 leading-relaxed">
+            <p className="mt-6 font-sans text-lg text-[#F7F5F0]/85 leading-relaxed">
               Heb je een project in gedachten? Of wil je gewoon eens
               kennismaken en de mogelijkheden bespreken? Ik hoor het graag.
             </p>
@@ -40,7 +40,7 @@ export default function ContactSection() {
                   <div className="flex items-start gap-4">
                     <Icon size={18} className="text-[#A67B5B] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50">
+                      <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60">
                         {item.label}
                       </p>
                       <p className="font-sans text-base text-[#F7F5F0] mt-0.5">
@@ -61,10 +61,10 @@ export default function ContactSection() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-[#F7F5F0]/10 space-y-2">
-              <p className="font-sans font-medium text-xs tracking-wide text-[#F7F5F0]/40">
+              <p className="font-sans font-medium text-sm tracking-wide text-[#F7F5F0]/50">
                 BTW: BE 0682 403 611
               </p>
-              <p className="font-sans font-medium text-xs tracking-wide text-[#F7F5F0]/40">
+              <p className="font-sans font-medium text-sm tracking-wide text-[#F7F5F0]/50">
                 IBAN: BE92 0018 2117 7323
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="naam" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                      <label htmlFor="naam" className="block font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60 mb-2">
                         Naam
                       </label>
                       <input
@@ -112,7 +112,7 @@ export default function ContactSection() {
                       <ValidationError field="naam" errors={state.errors} className="text-red-400 text-xs mt-1" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                      <label htmlFor="email" className="block font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60 mb-2">
                         E-mail
                       </label>
                       <input
@@ -128,7 +128,7 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="telefoon" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="telefoon" className="block font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60 mb-2">
                       Telefoon
                     </label>
                     <input
@@ -142,7 +142,7 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="onderwerp" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="onderwerp" className="block font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60 mb-2">
                       Onderwerp
                     </label>
                     <select
@@ -160,7 +160,7 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="bericht" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="bericht" className="block font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/60 mb-2">
                       Bericht
                     </label>
                     <textarea
@@ -177,7 +177,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full font-sans font-semibold text-xs tracking-[0.1em] uppercase py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                    className="w-full font-sans font-semibold text-sm tracking-[0.1em] uppercase py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     {state.submitting ? 'Versturen...' : 'Verstuur bericht'}
                   </button>

@@ -50,7 +50,7 @@ export default function ProjectsSection() {
       <div className="container-custom">
         <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-16 gap-6">
           <div>
-            <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
+            <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
               Realisaties
             </span>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-charcoal leading-[1.1] tracking-tight">
@@ -94,7 +94,7 @@ export default function ProjectsSection() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <span className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/60">
+                <span className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/80">
                   {project.category}
                 </span>
                 <h3 className="font-sans font-semibold text-lg text-[#F7F5F0] mt-1 flex items-center gap-2">
@@ -131,13 +131,13 @@ export default function ProjectsSection() {
               className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
             />
             <div className="mt-6">
-              <span className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#A67B5B]">
+              <span className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#A67B5B]">
                 {lightboxProject.category}
               </span>
               <h3 className="font-serif text-2xl text-[#F7F5F0] mt-2">
                 {lightboxProject.title}
               </h3>
-              <p className="font-sans text-sm text-[#F7F5F0]/70 mt-2 leading-relaxed">
+              <p className="font-sans text-base text-[#F7F5F0]/85 mt-2 leading-relaxed">
                 {lightboxProject.description}
               </p>
             </div>

@@ -72,7 +72,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
           <div className="hidden lg:block">
             <button
               onClick={() => scrollTo('#contact')}
-              className={`font-sans font-semibold text-xs tracking-widest uppercase px-7 py-3 rounded-full transition-all duration-300 ${
+              className={`font-sans font-semibold text-sm tracking-widest uppercase px-7 py-3 rounded-full transition-all duration-300 ${
                 scrolled
                   ? 'bg-charcoal text-[#F7F5F0] hover:bg-[#A67B5B]'
                   : 'bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white'

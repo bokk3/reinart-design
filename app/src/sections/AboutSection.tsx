@@ -10,7 +10,7 @@ export default function AboutSection() {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div ref={textRef} className="lg:col-span-7 flex flex-col justify-center">
-            <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
+            <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
               Over de vakman
             </span>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-charcoal leading-[1.1] tracking-tight">
@@ -18,17 +18,17 @@ export default function AboutSection() {
             </h2>
 
             <div className="mt-6 space-y-4">
-              <p className="font-sans text-lg text-[#8A8580] leading-relaxed">
+              <p className="font-sans text-lg text-[#5C3D2E] leading-relaxed">
                 Ik ben Rein. Meubelmaker, ontwerper en perfectionist. Al jaren
                 bouw ik meubels waar mensen hun hele leven plezier van hebben.
               </p>
-              <p className="font-sans text-base text-[#8A8580] leading-relaxed">
+              <p className="font-sans text-base text-[#5C3D2E]/90 leading-relaxed">
                 Elk project begint met luisteren. Ik kom bij je langs, bekijk de
                 ruimte, voel de sfeer en vertaal jouw wensen naar een ontwerp dat
                 perfect past. Van eerste schets tot plaatsing ter plaatse — ik
                 doe alles zelf.
               </p>
-              <p className="font-sans text-base text-[#8A8580] leading-relaxed">
+              <p className="font-sans text-base text-[#5C3D2E]/90 leading-relaxed">
                 Mijn werkplaats staat in Wilsele, vlak bij Leuven. Hier ontwerp ik
                 en bouw ik elk meubelstuk met de hand. Massief hout, kwaliteitsstaal,
                 en een obsessie voor detail. Dat is waar ik voor sta.
@@ -39,7 +39,7 @@ export default function AboutSection() {
               <p className="font-sans font-semibold text-lg text-charcoal">
                 Rein De Keyser
               </p>
-              <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#8A8580] mt-1">
+              <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#5C3D2E]/70 mt-1">
                 Meubelmaker &amp; Ontwerper
               </p>
             </div>
@@ -60,7 +60,7 @@ export default function AboutSection() {
               className="absolute -bottom-6 -left-6 bg-[#FAFAF8] rounded-lg shadow-md p-6"
             >
               <p className="font-serif text-5xl text-[#5C3D2E] leading-none">10+</p>
-              <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#8A8580] mt-2">
+              <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#5C3D2E]/70 mt-2">
                 Jaar ervaring
               </p>
             </div>

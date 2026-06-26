@@ -115,7 +115,7 @@ export default function HeroSection() {
         <div className="relative z-10 flex flex-col justify-center h-full container-custom">
           <span
             ref={eyebrowRef}
-            className="font-sans font-medium text-xs tracking-[0.2em] uppercase text-[#A67B5B] opacity-0"
+            className="font-sans font-medium text-sm tracking-[0.2em] uppercase text-[#C89968] opacity-0"
           >
             Maatwerk in hout &amp; staal — Wilsele, België
           </span>
@@ -147,13 +147,13 @@ export default function HeroSection() {
           <div ref={ctaRef} className="mt-12 flex flex-wrap gap-4 opacity-0">
             <button
               onClick={() => scrollTo('#projecten')}
-              className="font-sans font-semibold text-xs tracking-[0.1em] uppercase px-8 py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="font-sans font-semibold text-sm tracking-[0.1em] uppercase px-8 py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               Bekijk realisaties
             </button>
             <button
               onClick={() => scrollTo('#contact')}
-              className="font-sans font-semibold text-xs tracking-[0.1em] uppercase px-8 py-4 rounded-full border border-[#F7F5F0]/40 text-[#F7F5F0] hover:border-[#F7F5F0] hover:bg-[#F7F5F0]/10 transition-all duration-300"
+              className="font-sans font-semibold text-sm tracking-[0.1em] uppercase px-8 py-4 rounded-full border border-[#F7F5F0]/40 text-[#F7F5F0] hover:border-[#F7F5F0] hover:bg-[#F7F5F0]/10 transition-all duration-300"
             >
               Vraag een gesprek aan
             </button>

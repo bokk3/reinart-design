@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 
 const SECTION_IDS = [
   'hero',
-  'realisaties',
+  'projecten',
   'over-rein',
   'werkwijze',
-  'waarom-rein',
-  'projecten',
   'materialen',
   'contact',
 ]

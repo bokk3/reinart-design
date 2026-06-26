@@ -30,7 +30,7 @@ export default function Footer() {
 
           <div className="flex flex-wrap gap-12 lg:gap-16">
             <div>
-              <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/40 mb-4">
+              <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-4">
                 Navigatie
               </p>
               <div className="space-y-2">
@@ -38,7 +38,7 @@ export default function Footer() {
                   <button
                     key={link.href}
                     onClick={() => scrollTo(link.href)}
-                    className="block font-sans text-sm text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors"
+                    className="block font-sans text-base text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors"
                   >
                     {link.label}
                   </button>
@@ -47,24 +47,24 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/40 mb-4">
+              <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-4">
                 Contact
               </p>
               <div className="space-y-2">
-                <a href="tel:+32487837041" className="block font-sans text-sm text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors">
+                <a href="tel:+32487837041" className="block font-sans text-base text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors">
                   +32 (0)487 837 041
                 </a>
-                <a href="mailto:contact@reinartdesign.be" className="block font-sans text-sm text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors">
+                <a href="mailto:contact@reinartdesign.be" className="block font-sans text-base text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors">
                   contact@reinartdesign.be
                 </a>
-                <p className="font-sans text-sm text-[#F7F5F0]/60">
+                <p className="font-sans text-base text-[#F7F5F0]/60">
                   Bornestraat 285, Wilsele
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/40 mb-4">
+              <p className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-4">
                 Volg mij
               </p>
               <a
@@ -74,21 +74,21 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-[#F7F5F0]/60 hover:text-[#A67B5B] transition-colors"
               >
                 <Instagram size={18} />
-                <span className="font-sans text-sm">Instagram</span>
+                <span className="font-sans text-base">Instagram</span>
               </a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-[#F7F5F0]/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="font-sans font-medium text-xs text-[#F7F5F0]/30">
+          <p className="font-sans text-sm text-[#F7F5F0]/40">
             &copy; 2025 Rein Art Design. Alle rechten voorbehouden.
           </p>
           <div className="flex gap-6">
-            <span className="font-sans font-medium text-xs text-[#F7F5F0]/30 cursor-default">
+            <span className="font-sans text-sm text-[#F7F5F0]/40 cursor-default">
               Privacybeleid
             </span>
-            <span className="font-sans font-medium text-xs text-[#F7F5F0]/30 cursor-default">
+            <span className="font-sans text-sm text-[#F7F5F0]/40 cursor-default">
               Cookiebeleid
             </span>
           </div>
