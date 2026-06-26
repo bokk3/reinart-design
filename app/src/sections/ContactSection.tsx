@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useForm, ValidationError } from '@formspree/react'
 import { User, Building2, MapPin, Phone, Mail, Globe, Instagram } from 'lucide-react'
 
 const CONTACT_DETAILS = [
@@ -12,32 +12,10 @@ const CONTACT_DETAILS = [
 ]
 
 export default function ContactSection() {
-  const [formState, setFormState] = useState({
-    naam: '',
-    email: '',
-    telefoon: '',
-    onderwerp: 'Maatwerk aanvraag',
-    bericht: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
+  const [state, handleSubmit] = useForm('xeevejjg')
 
   const leftRef = useScrollReveal<HTMLDivElement>({ y: 40, x: -40, start: 'top 75%' })
   const rightRef = useScrollReveal<HTMLDivElement>({ y: 40, x: 40, start: 'top 75%' })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormState({
-        naam: '',
-        email: '',
-        telefoon: '',
-        onderwerp: 'Maatwerk aanvraag',
-        bericht: '',
-      })
-    }, 4000)
-  }
 
   return (
     <section id="contact" className="bg-charcoal section-padding relative z-10">
@@ -104,7 +82,7 @@ export default function ContactSection() {
 
           <div ref={rightRef} className="lg:col-span-7">
             <div className="bg-[#F7F5F0]/5 rounded-lg p-6 lg:p-8 border border-[#F7F5F0]/10">
-              {submitted ? (
+              {state.succeeded ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 rounded-full bg-[#A67B5B]/20 flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-[#A67B5B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,53 +98,57 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                      <label htmlFor="naam" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
                         Naam
                       </label>
                       <input
+                        id="naam"
                         type="text"
+                        name="naam"
                         required
-                        value={formState.naam}
-                        onChange={(e) => setFormState((s) => ({ ...s, naam: e.target.value }))}
                         placeholder="Jouw naam"
                         className="w-full bg-transparent border-b border-[#F7F5F0]/20 focus:border-[#A67B5B] text-[#F7F5F0] font-sans text-base py-3 outline-none transition-colors placeholder:text-[#F7F5F0]/30"
                       />
+                      <ValidationError field="naam" errors={state.errors} className="text-red-400 text-xs mt-1" />
                     </div>
                     <div>
-                      <label className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                      <label htmlFor="email" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
                         E-mail
                       </label>
                       <input
+                        id="email"
                         type="email"
+                        name="email"
                         required
-                        value={formState.email}
-                        onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
                         placeholder="jouw@email.be"
                         className="w-full bg-transparent border-b border-[#F7F5F0]/20 focus:border-[#A67B5B] text-[#F7F5F0] font-sans text-base py-3 outline-none transition-colors placeholder:text-[#F7F5F0]/30"
                       />
+                      <ValidationError field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="telefoon" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
                       Telefoon
                     </label>
                     <input
+                      id="telefoon"
                       type="tel"
-                      value={formState.telefoon}
-                      onChange={(e) => setFormState((s) => ({ ...s, telefoon: e.target.value }))}
+                      name="telefoon"
                       placeholder="+32 ..."
                       className="w-full bg-transparent border-b border-[#F7F5F0]/20 focus:border-[#A67B5B] text-[#F7F5F0] font-sans text-base py-3 outline-none transition-colors placeholder:text-[#F7F5F0]/30"
                     />
+                    <ValidationError field="telefoon" errors={state.errors} className="text-red-400 text-xs mt-1" />
                   </div>
 
                   <div>
-                    <label className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="onderwerp" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
                       Onderwerp
                     </label>
                     <select
-                      value={formState.onderwerp}
-                      onChange={(e) => setFormState((s) => ({ ...s, onderwerp: e.target.value }))}
+                      id="onderwerp"
+                      name="onderwerp"
+                      defaultValue="Maatwerk aanvraag"
                       className="w-full bg-transparent border-b border-[#F7F5F0]/20 focus:border-[#A67B5B] text-[#F7F5F0] font-sans text-base py-3 outline-none transition-colors"
                     >
                       <option value="Maatwerk aanvraag" className="bg-charcoal">Maatwerk aanvraag</option>
@@ -174,27 +156,30 @@ export default function ContactSection() {
                       <option value="Offerte" className="bg-charcoal">Offerte</option>
                       <option value="Andere vraag" className="bg-charcoal">Andere vraag</option>
                     </select>
+                    <ValidationError field="onderwerp" errors={state.errors} className="text-red-400 text-xs mt-1" />
                   </div>
 
                   <div>
-                    <label className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
+                    <label htmlFor="bericht" className="block font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#F7F5F0]/50 mb-2">
                       Bericht
                     </label>
                     <textarea
+                      id="bericht"
+                      name="bericht"
                       required
                       rows={5}
-                      value={formState.bericht}
-                      onChange={(e) => setFormState((s) => ({ ...s, bericht: e.target.value }))}
                       placeholder="Vertel me over je project..."
                       className="w-full bg-transparent border-b border-[#F7F5F0]/20 focus:border-[#A67B5B] text-[#F7F5F0] font-sans text-base py-3 outline-none transition-colors resize-none placeholder:text-[#F7F5F0]/30"
                     />
+                    <ValidationError field="bericht" errors={state.errors} className="text-red-400 text-xs mt-1" />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full font-sans font-semibold text-xs tracking-[0.1em] uppercase py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
+                    disabled={state.submitting}
+                    className="w-full font-sans font-semibold text-xs tracking-[0.1em] uppercase py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
-                    Verstuur bericht
+                    {state.submitting ? 'Versturen...' : 'Verstuur bericht'}
                   </button>
                 </form>
               )}
