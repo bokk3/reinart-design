@@ -1,0 +1,89 @@
+{
+  "mode": "local",
+  "categories": [
+    "Tafels",
+    "Kasten",
+    "Interieur"
+  ],
+  "projects": [
+    {
+      "id": "local-01-tafel-es---zoni-nwoud-jpg",
+      "title": "Tafel Es — Zoniënwoud",
+      "category": "Tafels",
+      "coverImage": "/test-drive/01%20-%20Tafels/01_Tafel%20Es%20%E2%80%94%20Zoni%C3%ABnwoud.jpg",
+      "images": [
+        "/test-drive/01%20-%20Tafels/01_Tafel%20Es%20%E2%80%94%20Zoni%C3%ABnwoud.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 101
+    },
+    {
+      "id": "local-02-salontafel-zebrano-jpg",
+      "title": "Salontafel Zebrano",
+      "category": "Tafels",
+      "coverImage": "/test-drive/01%20-%20Tafels/02_Salontafel%20Zebrano.jpg",
+      "images": [
+        "/test-drive/01%20-%20Tafels/02_Salontafel%20Zebrano.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 102
+    },
+    {
+      "id": "local-01-dressing-op-maat-jpg",
+      "title": "Dressing op Maat",
+      "category": "Kasten",
+      "coverImage": "/test-drive/02%20-%20Kasten/01_Dressing%20op%20Maat.jpg",
+      "images": [
+        "/test-drive/02%20-%20Kasten/01_Dressing%20op%20Maat.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 201
+    },
+    {
+      "id": "local-02-tv-meubel-walnoot-jpg",
+      "title": "TV-meubel Walnoot",
+      "category": "Kasten",
+      "coverImage": "/test-drive/02%20-%20Kasten/02_TV-meubel%20Walnoot.jpg",
+      "images": [
+        "/test-drive/02%20-%20Kasten/02_TV-meubel%20Walnoot.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 202
+    },
+    {
+      "id": "local-01-keuken-eik-en-staal-jpg",
+      "title": "Keuken Eik en Staal",
+      "category": "Interieur",
+      "coverImage": "/test-drive/03%20-%20Interieur/01_Keuken%20Eik%20en%20Staal.jpg",
+      "images": [
+        "/test-drive/03%20-%20Interieur/01_Keuken%20Eik%20en%20Staal.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 301
+    },
+    {
+      "id": "local-02-badkamermeubel-es-jpg",
+      "title": "Badkamermeubel Es",
+      "category": "Interieur",
+      "coverImage": "/test-drive/03%20-%20Interieur/02_Badkamermeubel%20Es.jpg",
+      "images": [
+        "/test-drive/03%20-%20Interieur/02_Badkamermeubel%20Es.jpg"
+      ],
+      "description": "Handgemaakt in het atelier te Wilsele. Maatwerk in massief hout en staal.",
+      "order": 302
+    },
+    {
+      "id": "local-03-bed-frame-notelaar",
+      "title": "Bed Frame Notelaar",
+      "category": "Interieur",
+      "coverImage": "/test-drive/03%20-%20Interieur/03_Bed%20Frame%20Notelaar/01_hoofdbeeld.jpg",
+      "images": [
+        "/test-drive/03%20-%20Interieur/03_Bed%20Frame%20Notelaar/01_hoofdbeeld.jpg",
+        "/test-drive/03%20-%20Interieur/03_Bed%20Frame%20Notelaar/02_detail.jpg"
+      ],
+      "description": "Frame gemaakt uit volstalen onderdelen gecombineerd met Europees notelaar. Volledig demonteerbaar en op maat van de matras.",
+      "order": 303
+    }
+  ],
+  "lastUpdated": "2026-09-18T10:52:34.803Z"
+}
