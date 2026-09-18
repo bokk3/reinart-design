@@ -52,41 +52,52 @@ export default function TestimonialsSection() {
   const t = TESTIMONIALS[current]
 
   return (
-    <section className="bg-sand section-padding relative z-10">
+    <section className="bg-sand section-padding relative z-10 border-b border-charcoal/5">
       <div className="container-custom max-w-4xl mx-auto">
         <div className="text-center">
-          <span className="font-serif text-8xl text-[#A67B5B]/30 leading-none select-none">"</span>
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-6 h-px bg-[#A67B5B]" />
+            <span className="font-sans font-medium text-xs tracking-[0.25em] uppercase text-[#A67B5B]">
+              Ervaringen &amp; Getuigenissen
+            </span>
+            <span className="w-6 h-px bg-[#A67B5B]" />
+          </div>
+          <span className="font-serif text-7xl text-[#A67B5B]/30 leading-none select-none block mt-6">
+            &ldquo;
+          </span>
         </div>
 
-        <div ref={contentRef} className="text-center mt-4">
-          <p className="font-serif text-xl sm:text-2xl text-charcoal leading-relaxed italic max-w-3xl mx-auto">
-            "{t.quote}"
+        <div ref={contentRef} className="text-center mt-2">
+          <p className="font-serif text-2xl sm:text-3xl lg:text-4xl text-charcoal leading-relaxed italic max-w-3xl mx-auto font-normal">
+            &ldquo;{t.quote}&rdquo;
           </p>
 
-          <div className="mt-8">
-            <p className="font-sans font-semibold text-lg text-charcoal">{t.name}</p>
-            <p className="font-sans font-medium text-xs tracking-[0.1em] uppercase text-[#8A8580] mt-1">
+          <div className="mt-10">
+            <p className="font-sans font-semibold text-base text-charcoal tracking-wider uppercase">
+              {t.name}
+            </p>
+            <p className="font-sans font-medium text-xs tracking-[0.2em] uppercase text-muted-custom mt-1">
               {t.project}
             </p>
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-4 mt-12">
+        <div className="flex justify-center items-center gap-6 mt-14">
           <button
             onClick={prev}
-            className="w-12 h-12 rounded-full border border-[#D4CFC8] flex items-center justify-center hover:border-charcoal transition-colors"
+            className="w-10 h-10 border border-charcoal/20 flex items-center justify-center hover:border-charcoal hover:bg-charcoal hover:text-[#F6F4EE] transition-all duration-300 text-charcoal"
             aria-label="Vorige testimonial"
           >
-            <ChevronLeft size={20} className="text-charcoal" />
+            <ChevronLeft size={18} />
           </button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2.5 items-center">
             {TESTIMONIALS.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goTo(idx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  idx === current ? 'bg-charcoal w-6' : 'bg-[#D4CFC8]'
+                className={`h-1 transition-all duration-500 ${
+                  idx === current ? 'bg-charcoal w-8' : 'bg-charcoal/20 w-4 hover:bg-charcoal/40'
                 }`}
                 aria-label={`Ga naar testimonial ${idx + 1}`}
               />
@@ -95,10 +106,10 @@ export default function TestimonialsSection() {
 
           <button
             onClick={next}
-            className="w-12 h-12 rounded-full border border-[#D4CFC8] flex items-center justify-center hover:border-charcoal transition-colors"
+            className="w-10 h-10 border border-charcoal/20 flex items-center justify-center hover:border-charcoal hover:bg-charcoal hover:text-[#F6F4EE] transition-all duration-300 text-charcoal"
             aria-label="Volgende testimonial"
           >
-            <ChevronRight size={20} className="text-charcoal" />
+            <ChevronRight size={18} />
           </button>
         </div>
       </div>

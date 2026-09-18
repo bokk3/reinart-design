@@ -94,42 +94,54 @@ export default function HeroSection() {
   return (
     <>
       {/* Fixed hero */}
-      <div id="hero" ref={sectionRef} className="fixed inset-0 z-0 h-screen w-full">
+      <div id="hero" ref={sectionRef} className="fixed inset-0 z-0 h-screen w-full overflow-hidden">
         <div
           ref={bgRef}
           className="absolute inset-0 w-full h-full opacity-0"
           style={{ willChange: 'transform' }}
         >
-          <img
-            src="/assets/hero-bg.jpg"
-            alt="Handgemaakte walnoot eettafel in minimalistisch Belgisch interieur"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/assets/hero-bg.jpg"
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/assets/hero-video.mp4" type="video/mp4" />
+            <img
+              src="/assets/hero-bg.jpg"
+              alt="Handgemaakte walnoot eettafel in minimalistisch Belgisch interieur"
+              className="w-full h-full object-cover"
+            />
+          </video>
         </div>
         <div
           ref={overlayRef}
-          className="absolute inset-0 bg-[#1A1A1A] opacity-0"
-          style={{ mixBlendMode: 'multiply' }}
+          className="absolute inset-0 bg-gradient-to-t from-[#121110] via-[#121110]/55 to-[#121110]/65 opacity-0"
         />
 
         <div className="relative z-10 flex flex-col justify-center h-full container-custom">
-          <span
-            ref={eyebrowRef}
-            className="font-sans font-medium text-sm tracking-[0.2em] uppercase text-[#C89968] opacity-0"
-          >
-            Maatwerk in hout &amp; staal — Wilsele, België
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="w-6 h-px bg-[#C89968]" />
+            <span
+              ref={eyebrowRef}
+              className="font-sans font-medium text-xs tracking-[0.25em] uppercase text-[#C89968] opacity-0"
+            >
+              Atelier Wilsele &bull; Massief Hout &amp; Staal
+            </span>
+          </div>
 
-          <h1 className="mt-6 max-w-3xl">
+          <h1 className="mt-6 max-w-4xl">
             <span
               ref={line1Ref}
-              className="block font-serif text-5xl sm:text-6xl lg:text-7xl text-[#F7F5F0] leading-[1.05] tracking-tight opacity-0"
+              className="block font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-[#F6F4EE] leading-[1.04] tracking-tight opacity-0"
             >
-              Tijdloos vakmanschap.
+              Tijdloos <span className="italic font-normal text-[#EAE0D5]">vakmanschap</span>.
             </span>
             <span
               ref={line2Ref}
-              className="block font-serif text-5xl sm:text-6xl lg:text-7xl text-[#F7F5F0] leading-[1.05] tracking-tight mt-2 opacity-0"
+              className="block font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-[#F6F4EE] leading-[1.04] tracking-tight mt-2 sm:mt-3 opacity-0"
             >
               Gebouwd voor het leven.
             </span>
@@ -137,27 +149,36 @@ export default function HeroSection() {
 
           <p
             ref={subRef}
-            className="mt-8 max-w-xl font-sans text-base sm:text-lg text-[#F7F5F0]/80 leading-relaxed opacity-0"
+            className="mt-8 max-w-xl font-sans text-base sm:text-lg text-[#F6F4EE]/80 leading-relaxed font-light opacity-0"
           >
-            Elk meubelstuk wordt met de hand ontworpen en vervaardigd in onze
-            werkplaats. Geen massaproductie. Alleen uitzonderlijk maatwerk dat
-            generaties meegaat.
+            Elk meubelstuk wordt van eerste schets tot eindafwerking met de hand vervaardigd in ons atelier.
+            Geen serieproductie. Alleen puur maatwerk in staal en massief hout dat generaties meegaat.
           </p>
 
-          <div ref={ctaRef} className="mt-12 flex flex-wrap gap-4 opacity-0">
+          <div ref={ctaRef} className="mt-12 flex flex-wrap gap-5 opacity-0 items-center">
             <button
               onClick={() => scrollTo('#projecten')}
-              className="font-sans font-semibold text-sm tracking-[0.1em] uppercase px-8 py-4 rounded-full bg-[#F7F5F0] text-charcoal hover:bg-[#A67B5B] hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group font-sans font-medium text-xs tracking-[0.2em] uppercase px-8 py-4 bg-[#F6F4EE] text-[#121110] hover:bg-[#A67B5B] hover:text-white transition-all duration-300 flex items-center gap-3 border border-[#F6F4EE]"
             >
-              Bekijk realisaties
+              <span>Bekijk realisaties</span>
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-sm">&rarr;</span>
             </button>
             <button
               onClick={() => scrollTo('#contact')}
-              className="font-sans font-semibold text-sm tracking-[0.1em] uppercase px-8 py-4 rounded-full border border-[#F7F5F0]/40 text-[#F7F5F0] hover:border-[#F7F5F0] hover:bg-[#F7F5F0]/10 transition-all duration-300"
+              className="font-sans font-medium text-xs tracking-[0.2em] uppercase px-8 py-4 border border-[#F6F4EE]/40 text-[#F6F4EE] hover:border-[#F6F4EE] hover:bg-[#F6F4EE]/10 transition-all duration-300"
             >
               Vraag een gesprek aan
             </button>
           </div>
+        </div>
+
+        {/* Architectural Scroll Cue */}
+        <div
+          onClick={() => scrollTo('#over-rein')}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2.5 opacity-50 hover:opacity-90 transition-opacity cursor-pointer z-10"
+        >
+          <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-[#F6F4EE]">Scroll</span>
+          <div className="w-px h-9 bg-gradient-to-b from-[#F6F4EE] via-[#F6F4EE]/60 to-transparent animate-pulse" />
         </div>
       </div>
 

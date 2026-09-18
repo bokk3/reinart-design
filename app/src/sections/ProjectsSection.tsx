@@ -46,27 +46,30 @@ export default function ProjectsSection() {
   }, [])
 
   return (
-    <section id="projecten" className="bg-sand section-padding relative z-10">
+    <section id="projecten" className="bg-sand section-padding relative z-10 border-b border-charcoal/5">
       <div className="container-custom">
-        <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-16 gap-6">
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
-              Realisaties
-            </span>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-charcoal leading-[1.1] tracking-tight">
-              Projecten
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-px bg-[#A67B5B]" />
+              <span className="font-sans font-medium text-xs tracking-[0.25em] uppercase text-[#A67B5B]">
+                Portfolio Realisaties
+              </span>
+            </div>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal leading-[1.08] tracking-tight">
+              Geselecteerde Werken
             </h2>
           </div>
 
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-1.5 flex-wrap border border-charcoal/15 p-1 bg-[#FAF8F5]">
             {FILTERS.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`font-sans font-medium text-sm px-5 py-2 rounded-full border transition-all duration-300 ${
+                className={`font-sans font-medium text-xs tracking-[0.2em] uppercase px-5 py-2.5 transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-charcoal text-[#F7F5F0] border-charcoal'
-                    : 'bg-transparent text-[#8A8580] border-[#D4CFC8] hover:border-charcoal'
+                    ? 'bg-charcoal text-[#F6F4EE]'
+                    : 'text-muted-custom hover:text-charcoal'
                 }`}
               >
                 {filter}
@@ -75,71 +78,98 @@ export default function ProjectsSection() {
           </div>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((project, idx) => (
             <div
               key={project.id}
-              className={`relative rounded-lg overflow-hidden shadow-sm group cursor-pointer ${
+              className={`group bg-[#FAF8F5] border border-charcoal/10 overflow-hidden cursor-pointer flex flex-col justify-between transition-all duration-500 hover:border-charcoal/40 hover:shadow-lg ${
                 idx === 0 || idx === 3 ? 'md:col-span-2 lg:col-span-1' : ''
-              } ${idx === 3 ? 'md:col-span-2' : ''}`}
+              }`}
               onClick={() => setLightboxProject(project)}
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden relative bg-charcoal">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover grayscale-[15%] group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
                   loading="lazy"
                 />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <span className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#F7F5F0]/80">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121110]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 left-4 font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1 bg-[#121110]/75 text-[#F6F4EE] backdrop-blur-sm border border-white/10">
                   {project.category}
-                </span>
-                <h3 className="font-sans font-semibold text-lg text-[#F7F5F0] mt-1 flex items-center gap-2">
-                  {project.title}
-                  <ArrowRight size={16} className="text-[#F7F5F0]" />
-                </h3>
+                </div>
+                <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#FAF8F5] text-charcoal opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center shadow-md">
+                  <ArrowRight size={16} />
+                </div>
+              </div>
+
+              <div className="p-6 bg-[#FAF8F5] flex flex-col justify-between flex-1">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl text-charcoal group-hover:text-[#A67B5B] transition-colors leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="font-sans text-xs text-graphite/75 leading-relaxed mt-2 line-clamp-2 font-light">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-charcoal/10 flex items-center justify-between text-[11px] font-sans tracking-wider text-muted-custom uppercase">
+                  <span>Atelier Wilsele</span>
+                  <span className="text-charcoal font-medium group-hover:text-[#A67B5B] transition-colors">
+                    Bekijk detail &rarr;
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Luxury Atelier Lightbox */}
       {lightboxProject && (
         <div
-          className="fixed inset-0 z-[70] bg-[#1A1A1A]/95 flex items-center justify-center p-6 lg:p-12"
+          className="fixed inset-0 z-[70] bg-[#121110]/95 backdrop-blur-md flex items-center justify-center p-6 lg:p-12 animate-fadeIn"
           onClick={() => setLightboxProject(null)}
         >
           <button
-            className="absolute top-6 right-6 text-[#F7F5F0]/70 hover:text-[#F7F5F0] transition-colors"
+            className="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/20 text-[#F6F4EE]/70 hover:text-white hover:border-white flex items-center justify-center transition-colors"
             onClick={() => setLightboxProject(null)}
             aria-label="Sluiten"
           >
-            <X size={32} />
+            <X size={22} />
           </button>
 
           <div
-            className="max-w-4xl w-full"
+            className="max-w-4xl w-full bg-[#1E1D1B] border border-white/15 p-6 sm:p-8 overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={lightboxProject.image}
-              alt={lightboxProject.title}
-              className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-            />
-            <div className="mt-6">
-              <span className="font-sans font-medium text-sm tracking-[0.1em] uppercase text-[#A67B5B]">
-                {lightboxProject.category}
-              </span>
-              <h3 className="font-serif text-2xl text-[#F7F5F0] mt-2">
-                {lightboxProject.title}
-              </h3>
-              <p className="font-sans text-base text-[#F7F5F0]/85 mt-2 leading-relaxed">
-                {lightboxProject.description}
-              </p>
+            <div className="overflow-hidden bg-black aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center">
+              <img
+                src={lightboxProject.image}
+                alt={lightboxProject.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+              <div>
+                <span className="font-sans font-medium text-[11px] tracking-[0.25em] uppercase text-[#C89968]">
+                  {lightboxProject.category} &bull; Atelier Wilsele
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#F6F4EE] mt-1">
+                  {lightboxProject.title}
+                </h3>
+                <p className="font-sans text-sm text-[#F6F4EE]/80 mt-3 leading-relaxed max-w-xl font-light">
+                  {lightboxProject.description}
+                </p>
+              </div>
+              <div className="pt-2 sm:pt-0 flex-shrink-0">
+                <a
+                  href="#contact"
+                  onClick={() => setLightboxProject(null)}
+                  className="font-sans text-xs tracking-[0.2em] uppercase px-6 py-3 border border-[#F6F4EE]/40 text-[#F6F4EE] hover:bg-[#F6F4EE] hover:text-[#121110] transition-colors inline-block text-center"
+                >
+                  Vergelijkbaar project aanvragen
+                </a>
+              </div>
             </div>
           </div>
         </div>

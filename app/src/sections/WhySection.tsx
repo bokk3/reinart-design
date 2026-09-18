@@ -1,36 +1,29 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { Ruler, User, Handshake, TreePine, Sparkles, Truck } from 'lucide-react'
 
-const BENEFITS = [
+const PILLARS = [
   {
-    icon: Ruler,
-    title: 'Volledig maatwerk',
-    description: 'Geen standaardmaten. Elk meubel wordt precies gemaakt voor jouw ruimte, jouw stijl en jouw behoeften.',
+    number: '01',
+    title: 'Pure Singulariteit',
+    subtitle: 'Geen Massaproductie',
+    description: 'Elk meubelstuk ontstaat vanuit een leeg blad. Ontworpen rondom de exacte verhoudingen van jouw ruimte en de unieke tekening van het geselecteerde hout.',
   },
   {
-    icon: User,
-    title: 'Persoonlijke begeleiding',
-    description: 'Je werkt rechtstreeks met mij. Van eerste gesprek tot oplevering heb je één aanspreekpunt die jouw project kent.',
+    number: '02',
+    title: 'Eerlijke Materie',
+    subtitle: 'Stamhout & Volstaal',
+    description: 'Massief hout met respect voor noesten en vlammen, gecombineerd met volstaal behandeld met open vlam en bijenwas. Geen holle profielen of kunstmatige fineerfolies.',
   },
   {
-    icon: Handshake,
-    title: 'Één aanspreekpunt',
-    description: 'Ontwerp, productie én plaatsing — ik doe het allemaal zelf. Geen tussenpersonen, geen miscommunicatie.',
+    number: '03',
+    title: 'Eén Meester-Ambachtsman',
+    subtitle: 'Van Schets tot Plaatsing',
+    description: 'Geen tussenpersonen, accountmanagers of externe onderaannemers. Rein De Keyser ontwerpt, bouwt en monteert elk stuk persoonlijk in jouw woning.',
   },
   {
-    icon: TreePine,
-    title: 'Hoogwaardige materialen',
-    description: 'Enkel het beste: massief hout van duurzame oorsprong, kwaliteitsstaal en zorgvuldig geselecteerde afwerkingen.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Perfecte afwerking',
-    description: 'Elke rand, elk oppervlak, elke verbinding wordt tot in het kleinste detail afgewerkt. Dat is waar ik voor sta.',
-  },
-  {
-    icon: Truck,
-    title: 'Plaatsing inbegrepen',
-    description: 'Ik plaats alles zelf ter plaatse en werk af tot de laatste schroef. Jij hoeft niets te regelen.',
+    number: '04',
+    title: 'Generatielang Karakter',
+    subtitle: 'Tijdloos & Onverwoestbaar',
+    description: 'Onze meubels zijn gemaakt om intensief in te leven en generaties lang mee te gaan. Ze slijten niet af, maar bouwen door de jaren heen een rijke patine op.',
   },
 ]
 
@@ -39,34 +32,52 @@ export default function WhySection() {
   const cardsRef = useScrollReveal<HTMLDivElement>({ y: 30, stagger: 0.1, children: true, start: 'top 70%' })
 
   return (
-    <section id="waarom-rein" className="bg-cream section-padding relative z-10">
+    <section id="waarom-rein" className="bg-cream section-padding relative z-10 border-b border-charcoal/5">
       <div className="container-custom">
-        <div ref={headerRef} className="text-center mb-20">
-          <span className="font-sans font-medium text-xs tracking-[0.15em] uppercase text-[#A67B5B]">
-            Waarom Rein Art Design
-          </span>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-charcoal leading-[1.1] tracking-tight">
-            Vakmanschap dat je voelt
-          </h2>
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-px bg-[#A67B5B]" />
+              <span className="font-sans font-medium text-xs tracking-[0.25em] uppercase text-[#A67B5B]">
+                Filosofie &amp; Waarden
+              </span>
+            </div>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal leading-[1.08] tracking-tight">
+              Het Atelier Manifest
+            </h2>
+          </div>
+          <p className="max-w-md font-sans text-sm sm:text-base text-muted-custom leading-relaxed font-light">
+            Vakmanschap is geen marketingterm, maar een dagelijkse toewijding aan precisie,
+            materiaalkennis en compromisloze kwaliteit.
+          </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-          {BENEFITS.map((benefit) => {
-            const Icon = benefit.icon
-            return (
-              <div key={benefit.title} className="flex flex-col items-start">
-                <div className="w-12 h-12 rounded-full bg-sand flex items-center justify-center mb-4">
-                  <Icon size={22} className="text-[#5C3D2E]" />
-                </div>
-                <h3 className="font-sans font-semibold text-lg text-charcoal tracking-wide">
-                  {benefit.title}
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {PILLARS.map((pillar) => (
+            <div
+              key={pillar.number}
+              className="bg-[#FAF8F5] border border-charcoal/10 p-8 flex flex-col justify-between hover:border-charcoal/40 transition-colors duration-300"
+            >
+              <div>
+                <span className="font-serif text-4xl text-[#A67B5B]/40 block leading-none select-none">
+                  {pillar.number}
+                </span>
+                <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-muted-custom mt-6 block">
+                  {pillar.subtitle}
+                </span>
+                <h3 className="font-serif text-2xl text-charcoal mt-1 leading-snug">
+                  {pillar.title}
                 </h3>
-                <p className="font-sans text-sm text-[#8A8580] leading-relaxed mt-2">
-                  {benefit.description}
+                <p className="font-sans text-xs sm:text-sm text-graphite/75 leading-relaxed mt-4 font-light">
+                  {pillar.description}
                 </p>
               </div>
-            )
-          })}
+
+              <div className="mt-8 pt-4 border-t border-charcoal/10 text-[10px] font-sans tracking-[0.2em] uppercase text-muted-custom">
+                Atelier Wilsele Standaard
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

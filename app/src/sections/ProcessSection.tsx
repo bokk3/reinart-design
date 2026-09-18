@@ -8,33 +8,33 @@ gsap.registerPlugin(ScrollTrigger)
 const STEPS = [
   {
     number: '01',
-    title: 'Kennismaking',
-    description: 'We beginnen met een gesprek. Ik luister naar je wensen, je leefstijl en de sfeer van je huis. Geen standaardoplossingen — elk project is uniek.',
+    phase: 'Fase 01 &bull; Eerste Contact',
+    title: 'Dialoog &amp; Visie',
+    description: 'We starten met een diepgaand gesprek over jouw levensstijl, esthetische voorkeuren en de functie van het meubel. Geen haastige cataloguskeuzes, maar het fundament voor een uniek stuk.',
   },
   {
     number: '02',
-    title: 'Opmeting',
-    description: 'Ik kom ter plaatse opmeten. Elke ruimte is anders en millimeters tellen mee. Ik bekijk lichtinval, verhoudingen en bestaande elementen.',
+    phase: 'Fase 02 &bull; Ter Plaatse',
+    title: 'Opmeting &amp; Lichtinval',
+    description: 'Ik kom persoonlijk ter plaatse inmeten. We analyseren de lichtinval, ruimtelijke proporties, vloeraansluitingen en architecturale zichtlijnen zodat het meubel naadloos integreert.',
   },
   {
     number: '03',
-    title: 'Ontwerp',
-    description: 'Samen komen we tot het perfecte ontwerp. Ik maak schetsen en 3D-visualisaties zodat je precies weet wat je krijgt. Revisies horen bij het proces.',
+    phase: 'Fase 03 &bull; Ontwerpstudio',
+    title: 'Materiaalselectie &amp; Detailontwerp',
+    description: 'Samen kiezen we de exacte stamdelen, houtsoorten en metaalafwerkingen. Schetsen en technische detailleringen geven een kristalhelder beeld van het toekomstige resultaat.',
   },
   {
     number: '04',
-    title: 'Materiaalkeuze',
-    description: 'Enkel hoogwaardige materialen. Massief eik, notelaar of essen. Kwaliteitsstaal met de juiste afwerking. Ik begeleid je bij elke keuze.',
+    phase: 'Fase 04 &bull; Werkplaats Wilsele',
+    title: 'Ambachtelijke Vervaardiging',
+    description: 'In mijn atelier te Wilsele wordt het meubel met de hand gezaagd, geschaafd, gelast en samengesteld. Traditionele houtverbindingen en hittebehandeld staal vormen het hart van de constructie.',
   },
   {
     number: '05',
-    title: 'Productie',
-    description: 'In mijn werkplaats in Wilsele wordt alles met uiterste precisie vervaardigd. Handgemaakt, niet machinaal. Elke verbinding, elke afwerking telt.',
-  },
-  {
-    number: '06',
-    title: 'Plaatsing',
-    description: 'Professionele installatie ter plaatse. Ik plaats alles zelf en werk af tot in de kleinste details. Jij hoeft alleen maar te genieten.',
+    phase: 'Fase 05 &bull; Oplevering',
+    title: 'Eigenhandige Plaatsing',
+    description: 'Ik plaats het meubelstuk zelf bij jou thuis. Millimeterwerk, perfect waterpas en afgewerkt tot in het kleinste detail. Klaar om generaties lang gekoesterd te worden.',
   },
 ]
 
@@ -81,7 +81,7 @@ export default function ProcessSection() {
       })
 
       tl.fromTo(number, { opacity: 0 }, { opacity: 1, duration: 0.5 })
-      tl.fromTo(content, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.7 }, 0.15)
+      tl.fromTo(content, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.7 }, 0.15)
       tl.fromTo(dot, { scale: 0 }, { scale: 1, duration: 0.4, ease: 'back.out(1.7)' }, 0.1)
     })
 
@@ -91,18 +91,21 @@ export default function ProcessSection() {
   }, [])
 
   return (
-    <section id="werkwijze" ref={sectionRef} className="bg-charcoal section-padding relative z-10">
+    <section id="werkwijze" ref={sectionRef} className="bg-[#121110] section-padding relative z-10 border-b border-white/10">
       <div className="container-custom">
         <div ref={headerRef} className="text-center mb-24">
-          <span className="font-sans font-medium text-sm tracking-[0.15em] uppercase text-[#A67B5B]">
-            Hoe ik werk
-          </span>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl text-[#F7F5F0] leading-[1.1] tracking-tight">
-            Van idee tot realisatie
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-6 h-px bg-[#C89968]" />
+            <span className="font-sans font-medium text-xs tracking-[0.25em] uppercase text-[#C89968]">
+              Methodiek &amp; Fasering
+            </span>
+            <span className="w-6 h-px bg-[#C89968]" />
+          </div>
+          <h2 className="mt-4 font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F6F4EE] leading-[1.08] tracking-tight">
+            Van Ruwe Balk tot Meesterstuk
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto font-sans text-lg text-[#F7F5F0]/80 leading-relaxed">
-            Een transparant proces waarbij jij centraal staat. Samen brengen
-            we jouw visie tot leven.
+          <p className="mt-4 max-w-xl mx-auto font-sans text-sm sm:text-base text-[#F6F4EE]/70 leading-relaxed font-light">
+            Eén meubelmaker begeleidt jouw project van het eerste gesprek tot de definitieve plaatsing in jouw interieur.
           </p>
         </div>
 
@@ -110,10 +113,10 @@ export default function ProcessSection() {
           {/* Center line */}
           <div
             ref={lineRef}
-            className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-[#F7F5F0]/20 lg:-translate-x-px"
+            className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-white/15 lg:-translate-x-px"
           />
 
-          <div className="space-y-20 lg:space-y-24">
+          <div className="space-y-16 lg:space-y-24">
             {STEPS.map((step, index) => {
               const isEven = index % 2 === 0
               return (
@@ -129,28 +132,33 @@ export default function ProcessSection() {
                       isEven ? 'lg:text-right lg:[direction:ltr]' : 'lg:text-left lg:[direction:ltr]'
                     }`}
                   >
-                    <span className="step-number font-serif text-7xl lg:text-8xl text-[#F7F5F0]/10 leading-none select-none">
+                    <span className="step-number font-serif text-6xl lg:text-7xl text-white/10 leading-none select-none block">
                       {step.number}
                     </span>
-                    <div className="step-content mt-2">
-                      <h3 className="font-serif text-2xl lg:text-3xl text-[#F7F5F0] leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="font-sans text-base text-[#F7F5F0]/85 leading-relaxed mt-3 max-w-md">
+                    <div className="step-content mt-1">
+                      <span
+                        className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#C89968] block"
+                        dangerouslySetInnerHTML={{ __html: step.phase }}
+                      />
+                      <h3
+                        className="font-serif text-2xl lg:text-3xl text-[#F6F4EE] leading-tight mt-1"
+                        dangerouslySetInnerHTML={{ __html: step.title }}
+                      />
+                      <p className="font-sans text-xs sm:text-sm text-[#F6F4EE]/75 leading-relaxed mt-3 font-light">
                         {step.description}
                       </p>
                     </div>
                   </div>
 
                   <div className="hidden lg:flex lg:col-span-2 justify-center">
-                    <div className="step-dot w-4 h-4 rounded-full bg-[#A67B5B] ring-4 ring-charcoal" />
+                    <div className="step-dot w-3.5 h-3.5 rounded-full bg-[#C89968] ring-4 ring-[#121110] border border-white/30" />
                   </div>
 
                   <div className="hidden lg:block lg:col-span-5" />
 
                   {/* Mobile dot */}
-                  <div className="absolute left-4 top-2 lg:hidden -translate-x-1/2">
-                    <div className="step-dot w-3 h-3 rounded-full bg-[#A67B5B]" />
+                  <div className="absolute left-4 top-3 lg:hidden -translate-x-1/2">
+                    <div className="step-dot w-3 h-3 rounded-full bg-[#C89968]" />
                   </div>
                 </div>
               )
