@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const eyebrowRef = useRef<HTMLSpanElement>(null)
   const line1Ref = useRef<HTMLSpanElement>(null)
@@ -15,6 +16,10 @@ export default function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.35
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) {
       gsap.set([eyebrowRef.current, line1Ref.current, line2Ref.current, subRef.current, ctaRef.current], {
@@ -101,6 +106,7 @@ export default function HeroSection() {
           style={{ willChange: 'transform' }}
         >
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
